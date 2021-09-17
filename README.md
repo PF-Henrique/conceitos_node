@@ -20,7 +20,10 @@ Sua arquitetura é de pilha ou seja o ultimo que entra é o primeiro que sai, su
 
 
 ## Event Loop
-![](docs\Untitled.png)
+<p align="center">
+  <strong>Event Loop</strong> <br />
+  <img src="https://github.com/PF-Henrique/conceitos_node/blob/master/.docs/Untitled.png" alt="event loop" />
+</p>
 
 Basicamente ele é um loop infinito de thread única, sem bloqueio e de forma assíncrona, que em cada iteração verifica se existem novos eventos em sua fila de eventos (call -stack- pilha). Tais eventos somente aparecem nesSa fila quando são emitidos durante as emissões de eventos na aplicação.
 
