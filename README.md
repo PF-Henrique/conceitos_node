@@ -5,6 +5,7 @@
 ## Sobre
 Node.js é um ambiente de tempo de execução de plataforma cruzada de código aberto para o desenvolvimento de aplicativos do lado do servidor e de rede. Os aplicativos Node.js são escritos em JavaScript e podem ser executados no tempo de execução do Node.js no 
 OS X, Microsoft Windows e Linux.
+NodeJS usa um modelo orientado a evento, não blocante de “I/O” o que faz dele leve e eficiente. I/O significa “input” e “output”. Isso quer dizer que qualquer tarefa, seja uma chamada HTTP até leitura de um arquivo em disco.
 
 ## Arquitetura
 Sua arquitetura é de pilha ou seja o ultimo que entra é o primeiro que sai, sua estrutura é single thread , ele processa esta thread dentro do event loop (executor de pilha de processos) sua base não é compilada e sim interpretada ou seja ela esta mais afastada do processador (linguagem natural de maquina "binário") diferentemente de um Java, rust, c++.
@@ -20,7 +21,10 @@ Sua arquitetura é de pilha ou seja o ultimo que entra é o primeiro que sai, su
 
 
 ## Event Loop
-![](docs\Untitled.png)
+<p align="center">
+  <strong>Event Loop</strong> <br />
+  <img src="https://github.com/PF-Henrique/conceitos_node/blob/master/.docs/Untitled.png" alt="event loop" />
+</p>
 
 Basicamente ele é um loop infinito de thread única, sem bloqueio e de forma assíncrona, que em cada iteração verifica se existem novos eventos em sua fila de eventos (call -stack- pilha). Tais eventos somente aparecem nesSa fila quando são emitidos durante as emissões de eventos na aplicação.
 
@@ -92,6 +96,47 @@ intro: https://www.youtube.com/watch?time_continue=186&v=ptUbpIoxrQc&feature=emb
 Ser bloqueante é quando a execução do código do resto do código JavaScript no processo do Node.js precisa esperar até que uma operação não-JavaScript seja completada. Isso acontece porque o event loop é incapaz de continuar executando JavaScript enquanto uma operação bloqueante está sendo executada.
 
 Métodos bloqueantes executam de forma síncrona e métodos não-bloqueantes executam de forma assíncrona.
+
+ex blocante:
+```
+const fs = require('fs');
+let fileContent;
+const someMath = 1+1;
+ 
+ 
+try {
+  fileContent = fs.readFileSync('big-file.txt', 'utf-8');
+  console.log('file has been read');
+} catch (err) {
+  console.log(err);
+}
+ 
+ 
+const text = `The sum is ${ someMath }`;
+console.log(text);
+```
+
+ex nao blocante:
+```
+const fs = require('fs');
+ 
+ 
+const someMatch = 1+1;
+ 
+ 
+fs.readFile('big-file.txt', 'utf-8', function (err, content) {
+ if (err) {
+ return console.log(err)
+ }
+ 
+ 
+ console.log(content)
+})
+ 
+ 
+const text = `The response is ${ someMatch }`;
+console.log(text);
+```
 
 
 ## Metodos HTTP
