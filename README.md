@@ -97,6 +97,47 @@ Ser bloqueante é quando a execução do código do resto do código JavaScript 
 
 Métodos bloqueantes executam de forma síncrona e métodos não-bloqueantes executam de forma assíncrona.
 
+ex blocante:
+```
+const fs = require('fs');
+let fileContent;
+const someMath = 1+1;
+ 
+ 
+try {
+  fileContent = fs.readFileSync('big-file.txt', 'utf-8');
+  console.log('file has been read');
+} catch (err) {
+  console.log(err);
+}
+ 
+ 
+const text = `The sum is ${ someMath }`;
+console.log(text);
+```
+
+ex nao blocante:
+```
+const fs = require('fs');
+ 
+ 
+const someMatch = 1+1;
+ 
+ 
+fs.readFile('big-file.txt', 'utf-8', function (err, content) {
+ if (err) {
+ return console.log(err)
+ }
+ 
+ 
+ console.log(content)
+})
+ 
+ 
+const text = `The response is ${ someMatch }`;
+console.log(text);
+```
+
 
 ## Metodos HTTP
 
