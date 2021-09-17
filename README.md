@@ -5,6 +5,7 @@
 ## Sobre
 Node.js é um ambiente de tempo de execução de plataforma cruzada de código aberto para o desenvolvimento de aplicativos do lado do servidor e de rede. Os aplicativos Node.js são escritos em JavaScript e podem ser executados no tempo de execução do Node.js no 
 OS X, Microsoft Windows e Linux.
+NodeJS usa um modelo orientado a evento, não blocante de “I/O” o que faz dele leve e eficiente. I/O significa “input” e “output”. Isso quer dizer que qualquer tarefa, seja uma chamada HTTP até leitura de um arquivo em disco.
 
 ## Arquitetura
 Sua arquitetura é de pilha ou seja o ultimo que entra é o primeiro que sai, sua estrutura é single thread , ele processa esta thread dentro do event loop (executor de pilha de processos) sua base não é compilada e sim interpretada ou seja ela esta mais afastada do processador (linguagem natural de maquina "binário") diferentemente de um Java, rust, c++.
